@@ -1,0 +1,45 @@
+﻿@using System.Data
+@using ZoomLa.BLL
+@model ZoomLa.SQLDAL.SQL.PageSetting
+@functions{
+    B_IServer isBll = new B_IServer();
+}
+@{
+  Model.cols = 9;
+}
+<div id="EGV" class="kf_Lists">
+<div class="kf_kongjian">
+            <ul class="title">
+                <li>编号</li>
+                <li>标题</li>
+                <li hidden>优先级</li>
+                <li hidden>问题类型</li>
+                <li>已读次数</li>
+                <li hidden>提交时间</li>
+                <li hidden>状态</li>
+            </ul>
+            @foreach (DataRow dr in Model.dt.Rows)
+                        {
+                <ul class="kf_Lists_c">
+                    <li>@dr["QuestionId"]</li>
+                    <li><a href="FiServerInfo?ID=@dr["QuestionId"]">@ZoomLa.Common.BaseClass.Htmlcode(@dr["Title"].ToString())</a></li>
+                    <li hidden>@dr["Priority"]</li>
+                    <li hidden><a href='SelectiServer?type=@(isBll.GetTypeIndex(dr["type"].ToString()))' target="_self">@dr["type"]</a></li>
+                    <li>@dr["ReadCount"]</li>
+                    <li>时间： @dr["SubTime"]</li>
+                    <li>状态： @dr["State"]</li>
+                    @*<li>
+                        @if (DataConverter.CStr(dr["state"]) != "已关闭")
+                        {
+                            <a href="javascript:;" onclick="postAPI('close','@dr["QuestionId"]');" class="btn btn-info btn-sm"><i class="fa fa-close"></i> 关闭问题</a>
+                        }
+                        <a href="javascript:;" onclick="postAPI('udel','@dr["QuestionId"]');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> 删除</a>
+                    </li>*@
+                </ul>
+                        }
+						
+		</div>				
+    <!--@Html.Partial("_page",Model)-->
+        </div>
+
+

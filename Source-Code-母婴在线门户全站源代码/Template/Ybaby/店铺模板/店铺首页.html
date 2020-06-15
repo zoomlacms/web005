@@ -1,0 +1,54 @@
+﻿{ZL.Source id="店铺模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</title>
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+</head>
+<body>
+<div class="container doc_top "><a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<h1>{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</h1>
+<div class="dropdown show  hos_toggle btn-group dropleft">
+<a class="btn dropdown-toggles" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="fa fa-bars" aria-hidden="true"></i> </a>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+<a class="dropdown-item" href="/Store/StoreList?NodeID=51&ID={$GetRequest(ID)$}" target="_self">全部商品</a>
+{ZL.Label id="循环输出店铺节点列表_下拉" NodeID="51" UserShopID="{SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}" /}
+</div>
+</div> 
+</div>
+<!--top end-->
+
+
+
+<main class="container shop_main">
+<div class="card">
+ <img class="card-img-top" src="{$CssDir/}Images/commend.png" alt="">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">店铺名称: <sapn>{SField sid="店铺模型数据源标签" FD="StoreName" page="0"/}</span></li>
+    <li class="list-group-item">所属人员: <span>{SField sid="店铺模型数据源标签" FD="UserName" page="0"/}</span> </li>
+    <li class="list-group-item">地址: <small>{SField sid="店铺模型数据源标签" FD="area" page="0"/}</small></li>
+  </ul>
+</div>
+
+<div class="shop_ja">
+<h2>店铺简介</h2>
+<div class="shop_center">{SField sid="店铺模型数据源标签" FD="content" page="0"/}
+</div>
+</div>
+</main>
+
+
+<div class="container">
+<div class="conatiner shop_pro">
+<h2>推荐服务</h2>
+{ZL.Label id="输出店铺商品列表_不分页" TitleNum="25" ShowNum="3" UserShopID="{SField sid="店铺模型数据源标签" FD="GeneralID" page="0"/}" NodeID="51" /}
+</div>
+</div>
+
+
+
+</body>
+</html>

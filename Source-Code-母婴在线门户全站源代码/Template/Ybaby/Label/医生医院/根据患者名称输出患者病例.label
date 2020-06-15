@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>368</LabelID>
+    <LabelName>根据患者名称输出患者病例</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>Uname,0,1,用户名称</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_U_jl ON ZL_User.UserID=ZL_U_jl.UserID</LabelTable>
+    <LabelField>ZL_User.Permissions,ZL_User.UserName,ZL_U_jl.bs,ZL_U_jl.sex,ZL_U_jl.xx,ZL_User.salt</LabelField>
+    <LabelWhere> ZL_User.UserName='@Uname'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;a href="#"&gt;&lt;img src="{Field="salt"/}" alt="{Field="UserName"/}"  onerror="this.onerror=null;this.src='/UploadFiles/nopic.svg'"&gt;&lt;/a&gt;
+&lt;small class="huanzhe_Info_n"&gt;患者昵称：{Field="UserName"/}&lt;/small&gt;
+&lt;ul&gt;
+&lt;li&gt;姓名：{Field="Permissions"/}&lt;/li&gt;
+&lt;li&gt;性别：{Field="sex"/}&lt;/li&gt;
+&lt;li&gt;年龄：16&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; &lt;span&gt;血型：{Field="xx"/}&lt;/span&gt; &lt;span&gt;病况：{Field="bs"/}&lt;/span&gt;&lt;/p&gt;
+&lt;div class="huanzhe_Info_c"&gt;
+&lt;strong&gt;病历&lt;/strong&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_U_jl"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

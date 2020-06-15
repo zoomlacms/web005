@@ -1,0 +1,41 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>会员中心_就诊患者</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="container doc_top pl_top">
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<div class="btn-group doc_dd" role="group" aria-label="Basic example">
+<a class="btn" href="/user">用户中心</a>
+<a class="btn active"  href="">就诊患者</a>
+</div>
+<a href="javascript:history.back(-1)"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+</div>
+<!--top end-->
+</header>
+<!--header end-->
+
+
+<section class="container">
+<div class="host_Jzhz">
+<ul>
+{ZL.Label id="根据医院输出所有的就诊患者" ShowNum="10" TitleNum="30" /}
+</ul>
+</div>
+</section>
+
+
+
+
+
+
+</body>
+</html>

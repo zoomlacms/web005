@@ -1,0 +1,78 @@
+﻿{ZL.Source id="医院模型数据源标签"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="医院模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="医院模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="description" content="{SField sid="医院模型数据源标签" FD="Title" page="0"/}" />
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container doc_top">
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<h1>{SField sid="医院模型数据源标签" FD="Title" page="0"/}</h1>
+<span>
+<a href="{ZL:GetNodeLinkUrl({SField sid="医院模型数据源标签" FD="NodeID" page="0"/})/}"><i class="fa z01-icon106" aria-hidden="true"></i></a>
+<a href="javascript:history.back(-1)"><i class="fa fa-reply" aria-hidden="true"></i></a>
+</span>
+</div>
+<!--top end-->
+
+<main class="container hos_main">
+<div class="hoscen_main">
+<span class="hoscen_main_sp"><img src="{ZL:GetPicUrl({SField sid="医院模型数据源标签" FD="logo" page="0"/})/}" alt=""></span>
+<p><small>{SField sid="医院模型数据源标签" FD="Title" page="0"/}</small>
+<span class="hos_main_dj">{SField sid="医院模型数据源标签" FD="yyjb" page="0"/} <a href="#" id="hos_main_qc" onClick="moubnt()"><i class="fa fa-qrcode" aria-hidden="true"></i></a> </span>
+<span class="hos_main_address"><i class="fa fa-map-marker" aria-hidden="true"></i> {SField sid="医院模型数据源标签" FD="szdq" page="0"/}</span>
+<small><a href="">{SField sid="医院模型数据源标签" FD="url" page="0"/}</a> </small>
+</p>
+</div>
+</main>
+<!--main end-->
+
+
+<section class="container">
+<strog>医院简介：</strog>
+{SField sid="医院模型数据源标签" FD="content" page="0"/}
+
+</section>
+
+<div class="container hoscen_center">
+<h2><i class="fa fa-user-md" aria-hidden="true"></i> 驻院医生</h2>
+<ul id="hoscen_ul">
+{ZL.Label id="根据医院名抽取所属医生" yuan="{SField sid="医院模型数据源标签" FD="Title" page="0"/}" ShowNum="10" /}
+</ul>
+</div>	
+<!--center end-->
+
+<img class="hos_qc" src={ZL:GetQCUrl({$SiteURL/}/item/{SField sid="医院模型数据源标签" FD="GeneralID" page="0"/}.aspx,150)/} alt='{SField sid="医院模型数据源标签" FD="Title" page="0"/}' />
+<!--二维码图片-->
+
+<script>
+//医生标签输出
+var tagValue=$("#tagValue1").attr("name").split(",");
+var tagHtml="";
+for(i=0;i<tagValue.length;i++){
+if(!tagValue[i]){continue};
+var tag=tagValue[i];
+tagHtml+='<small>'+tag+'</small>'
+}
+$("#tagValue1").append(tagHtml);
+
+//二维码出现
+function moubnt(){
+var $qc=$("#hos_main_qc");
+$(".hos_qc").css("display","block")
+$qc.attr("onclick","outbnt()")
+}
+function outbnt(){
+var $qc=$("#hos_main_qc");
+$(".hos_qc").css("display","none")
+
+$qc.attr("onclick","moubnt()")
+}
+
+</script>
+</body>
+</html>

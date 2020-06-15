@@ -1,0 +1,192 @@
+﻿@using ZoomLa.Model;
+@using ZoomLa.Model.User;
+@using ZoomLa.Common;
+@model ZoomLa.Model.M_UserInfo
+@{
+    Layout = "~/Areas/User/Views/Shared/_empty.cshtml";
+    M_PointGrounp pgMod = (M_PointGrounp)ViewBag.pgMod;
+    M_Uinfo basemu = (M_Uinfo)ViewBag.basemu;
+}
+@section head{
+    <title>会员中心-@Call.SiteName</title>
+}
+@section content{
+@RenderPage("~/Areas/User/Views/Shared/ASCX/DefaultTop.cshtml")
+<!--    <div class="u_fix_height"></div>-->
+
+<!--Css引用-->
+
+<nav class="navbar navbar-expand-xl navbar-light u_nav" id="usernav">
+   <a class="navbar-brand" href="/"><img src="@Call.LogoUrl" class="img-responsive" alt="@Call.SiteName" /></a>
+
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#nav1" aria-controls="nav1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  <div class="navbar-collapse collapse" id="nav1" style="">
+    <ul class="navbar-nav mr-auto">
+	
+	<li class="nav-item active" id="nav_home"><a class="nav-link" href="/User/Default">首页</a></li> 
+
+	<li class="nav-item" id="nav_content"><a class="nav-link" href="/User/Content/MyContent"> 资讯 </a></li>
+
+	<li class="nav-item" id="nav_shop"><a class="nav-link" href="/User/UserShop/Default">店铺</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class="u_info">
+<div class="container">
+<div class="row">
+<div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-4 u_face">
+	<a href="/User/Info/UserInfo"><img src="@Model.UserFace" onerror="shownoface(this);" /></a>
+	@*<ZL:UserBar ID="UserBar_U" runat="server" Width="100" />*@
+</div>
+<div class="col-xl-10 col-lg-10 ol-md-10 col-sm-10 col-8 u_syn">
+	<ul>
+	<li><i class="fa fa-user"></i> 会员名称：<label>@Model.UserName</label></li>
+	</ul>
+	<ul>
+	<li><i class="fa fa-rmb"></i> 余额：<label><li><a href="/User/Info/ConsumeDetail?SType=1" title="点击查看资金明细">@Model.Purse.ToString("f2")</a></label></li>
+	<li><a href="/PayOnline/SelectPayPlat.aspx" target="_blank">[在线充值]</a></li>
+	<li><a href="/User/Money/WithDraw">[申请提现]</a></li>
+	<li>银币：<label>@Model.SilverCoin.ToString("f0")</label></li>
+	<li><i class="fa fa-credit-card-alt"></i> 积分：<label>@Model.UserExp.ToString("f0")</label></li>
+	</ul>
+	</div>
+	</div>
+</div>
+</div>
+<!--u_info end-->
+
+<div class="container u_mysite" hidden>
+<nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="@Url.Action("Default","")">会员中心</a></li>
+    <li class="breadcrumb-item active" aria-current="page">功能引导</li>
+	</ol>
+</nav>
+</div>
+<!--面包屑导航 关闭-->
+
+
+<div class="container gr_middle yuyin_bottom">
+<ul>
+<li class="gr_listborder"><a href="/User/Order/OrderList"><i class="fa fa-calculator fa-1x" aria-hidden="true"></i><span>我的订单</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li><a href="@MvcHtmlString.Create(Call.GetLabel("{ZL:GetNodeListUrl(63)/}"))"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>就诊历史</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li><a href="/Class_64/Default.aspx?uname=@Model.UserName"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span>病历管理</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li ><a href="/User/UserFunc/UserSignin"><i class="fa fa-paper-plane-o" aria-hidden="true"></i><span>每日签到</span> <span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a> </li>
+<li class="gr_listborder"><a href="/User/CashCoupon/ArriveManage"><i class="fa fa-tags" aria-hidden="true"></i><span>优惠券</span> <span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li><a href="/User/info/UserBase"><i class="fa fa-map-marker" aria-hidden="true"></i><span> 地址管理</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span> </a> </li>
+<li class="gr_listborder"><a href=""><i class="fa fa-phone-square" aria-hidden="true"></i><span>联系我们</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a> </li>
+<li><a href="/User/Change/Pwd"><i class="fa fa-cog " aria-hidden="true"></i><span>账户设置</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li><a href="/User/User/LogOut?returnurl=/Class_18/Default.aspx"><i class="fa fa-toggle-off" aria-hidden="true"></i> </i><span>退出</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+</ul>
+</div>
+<!--我的订单 end-->
+
+
+
+<main class="container u_metro" hidden>
+<div class="row">
+	@ViewBag.userhtml
+</div>
+</main>
+<div class="u_sub_box" hidden>
+<div class="u_metro_more">
+<a href="javascript:;" id="more_btn" class="btn btn-outline-secondary btn-block" title="点击显示更多">More <i class="fa fa-angle-double-down"></i></a>
+</div>
+<div class="user_menu_sub">
+<ul>
+	@ViewBag.ontherhtml
+</ul>
+</div>
+</div>
+
+<div class="weui-tabbar wei_footer"> <a href="/Class_18/Default.aspx" class="weui-tabbar__item" id="foot_home"> <i class="fa fa-home weui-tabbar__icon "></i>
+<p class="weui-tabbar__label ">母婴服务</p>
+</a> <a href="/Class_19/Default.aspx" class="weui-tabbar__item" id="foot_jie"> <i class="fa fa-coffee weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">妈妈课堂</p>
+</a> <a href="/Class_20/Default.aspx" class="weui-tabbar__item" id="foot_quan"> <i class="fa fa-life-ring weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">陪诊陪护</p>
+</a> <a href="/User" class="weui-tabbar__item weui-bar__item_on" id="foot_user"> <i class="fa fa-user  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">个人中心</p>
+</a> </div>
+
+
+<footer class="u_footer fixed-bottom" hidden>
+	@MvcHtmlString.Create(ZoomLa.Components.SiteConfig.SiteInfo.Copyright)
+</footer>
+}
+@section script{
+<script>
+//智能路由
+   function urlByGid() {
+        var uid = "@MvcHtmlString.Create(Call.GetLabel("{ZL:GetuserID()/}"))";
+        var gid = "@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"根据当前登陆UID输出会员组ID\" /}"))";
+        var url = "#";
+        switch (gid) {
+            case "3":
+                url = "/Class_43/NodePage.aspx?uid=" + uid;
+                break;
+            case "4":
+                url = "/Class_48/NodePage.aspx?uid=" + uid;
+                break;
+            default:
+                break;
+        }
+        location = url;
+    }
+	urlByGid();
+
+
+	$().ready(function (e) {//菜单颜色配置
+		var colorArr = new Array('rgba(83,177,232,0.7)', 'rgba(87,162,206,0.7)', 'rgba(108,208,231,0.7)', 'rgba(62,181,237,0.7)', 'rgba(45,144,190,0.7)', 'rgba(66,135,167,0.7)', 'rgba(76,201,229,0.7)', 'rgba(1,187,229,0.7)', 'rgba(34,175,194,0.7)', 'rgba(140,212,255,0.7)', 'rgba(2,157,250,0.7)', 'rgba(2,204,250,0.7)');
+		var count = $(".user_menu_sub li").length;
+		for (var i = 0; i < count; i++) {
+			$(".user_menu").eq(i).css("background", colorArr[i % 12]);
+		}
+		if ($(".user_menu_sub li").length < 1)
+			$(".u_menu_more").remove();
+		$.post("/Common/API/Notify.ashx?action=list", "{}", function (data) {
+			console.log("msg:" + data);
+		})
+	})
+	$("#mimenu_btn").click(function (e) {
+		if ($(".u_menu_left").width() > 0) {
+			$(".u_menu_left ul").fadeOut(100);
+			$(".u_menu_left").animate({ width: 0 }, 200);
+		}
+		else {
+			$(".u_menu_left").animate({ width: 150 }, 300);
+			$(".u_menu_left ul").fadeIn();
+		}
+	});
+	//会员菜单更多显示/隐藏
+	$("#more_btn").click(function (e) {
+		if ($(".user_menu_sub").css("display") == "none") {
+			$(".user_menu_sub").slideDown();
+			$(this).find("i").removeClass("fa-angle-double-down");
+			$(this).find("i").addClass("fa-angle-double-up");
+		}
+		else {
+			$(".user_menu_sub").slideUp(200);
+			$(this).find("i").removeClass("fa-angle-double-up");
+			$(this).find("i").addClass("fa-angle-double-down");
+		}
+	});
+	//会员搜索
+	$("#sub_btn").click(function (e) {
+		if ($("#key").val() == "")
+			alert("搜索关键字为空!");
+		else
+			window.location = "/User/Common/SearchResult?key=" + escape($("#key").val());
+	});
+	//搜索回车事件
+	function IsEnter(obj) {
+		if (event.keyCode == 13) {
+			$("#sub_btn").click(); return false;
+		}
+	}
+</script>
+}

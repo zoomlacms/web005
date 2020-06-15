@@ -1,0 +1,115 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购买医生服务_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<form name="form8" method="post" action="/PubAction.aspx">
+<div hidden>
+<input type="hidden" name="PubID" id="PubID" value="8" />
+<input type="hidden" name="PubContentid" id="PubContentid" value="{PubContentid/}" />
+<input type="hidden" name="PubInputer" id="PubInputer" value="{PubInputer/}" />
+<div class="form-group">
+<label for="PubTitle">评论标题：</label>
+<input type="text" class="form-control" id="PubTitle" name="PubTitle" />{PubCode/}
+</div>
+
+<div class="form-group">
+<label for="PubTitle">患者名称：</label>
+<input type="text" class="form-control" id="hzmc" name="hzmc" value="{ZL:GetuserName()/}" />
+</div>
+
+<div class="form-group">
+<label for="PubTitle">医生名称：</label>
+<input type="text" class="form-control" id="ysmc" name="ysmc" value="{$GetUrldecode({$GetRequest(Uname)$})$}"/>
+</div>
+
+
+<div class="form-group">
+<label for="PubTitle">医生ID：</label>
+<input type="text" class="form-control" id="ysid" name="ysid" />
+</div>
+
+<div class="form-group">
+<label for="PubTitle">咨询简介：</label>
+<input type="text" class="form-control" id="zxjj" name="zxjj"  value="{$GetUrldecode({$GetRequest(title)$})$}"/>
+</div>
+
+<div class="form-group">
+<label for="PubTitle">下单时间：</label>
+<input type="text" class="form-control" id="xssj" name="xssj" />
+</div>
+
+<div class="form-group">
+<label for="PubTitle">商品价格：</label>
+<input type="text" class="form-control" id="spjg" name="spjg" value="{$GetRequest(jiage)$}"/>
+</div>
+
+<div class="form-group">
+<label for="PubTitle">医生擅长领域：</label>
+<input type="text" class="form-control" id="ysszly" name="ysszly" value="{$GetUrldecode({$GetRequest(scly)$})$}"/>
+</div>
+
+<div class="form-group">
+<label for="PubTitle">所属医院：</label>
+<input type="text" class="form-control" id="ysszyy" name="ysszyy" value="{$GetUrldecode({$GetRequest(yuan)$})$}"/>
+</div>
+
+<div class="form-group">
+<label for="PubTitle">从业年限：</label>
+<input type="text" class="form-control" id="ysjs" name="ysjs" value="{$GetUrldecode({$GetRequest(cynx)$})$}"/>
+</div>
+
+<div class="form-group">
+<label for="PubTitle">所属科室：</label>
+<input type="text" class="form-control" id="szks" name="szks" value="{$GetUrldecode({$GetRequest(ks)$})$}"/>
+</div>
+
+<div class="form-group text-center">
+<button type="submit" class="btn btn-default">提交</button>
+<button type="reset" class="btn btn-default">重置</button>
+</div>
+</div>
+<!--参数 end-->
+
+
+
+<div class="container">
+<div class="zx_Title"><strong>{$GetUrldecode({$GetRequest(title)$})$}</strong><span>注：请认真观看价格及服务内容再下单。</span></div>
+<div class="zx_Pri"><span>{$GetRequest(jiage)$}元</span><small>({$GetRequest(jiage)$}元/次)</small></div>
+<div class="zx_List">
+<strong>咨询信息</strong>
+<ul>
+<li>咨询价格 <span>￥{$GetRequest(jiage)$}</span></li>
+<li>联系方式 <div class="zx_jiage"><input type="text" id="hzdh" name="hzdh" value="请输入你的号码" onfocus="javascript:if(this.value=='请输入你的号码')this.value='';this.type='text'"/></div></li>
+<li>咨询内容  <div class="zx_con"><textarea class="form-control"  value="" id="PubContent" name="PubContent" aria-label="With textarea"></textarea></div></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+</div>
+
+<div class="container zx_doc">
+<strong>医生详情</strong>
+<div class="zx_doc_con">
+{ZL.Label id="获取医生的详情内容页" DocID="{$GetRequest(Gid)$}" /}
+</div>
+</div>
+
+
+<footer class="zx_footer">
+<div class="container zx_fooer_btn">
+<div>总金额：<span>￥{$GetRequest(jiage)$}</span></div>
+<div><input type="submit" name="button" id="button" value="提交" />   </div>
+</div>
+</footer>
+<!--footer end-->
+</form>
+
+</body>
+</html>

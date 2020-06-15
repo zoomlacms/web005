@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{$SiteName/}_首页</title>
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+{ZL:GetCSS(2,0)/}
+<link href="/dist/css/swiper.min.css" rel="stylesheet"/>
+<script src="/dist/js/swiper.min.js"></script>
+<script src="/js/scrolltopcontrol.js"></script>
+</head>
+<body>
+
+<header class="home_header">
+<nav class="navbar navbar-expand-lg mynav navbar-dark">
+<div class="container"> <a class="navbar-brand" href="/"><img src="{$LogoUrl/}" alt="{$SiteName/}"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+<div class="collapse navbar-collapse" id="navbarsExample07">
+  <ul class="navbar-nav mr-auto">
+	<li class="nav-item active"><a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a> </li>
+	<li class="nav-item"><a class="nav-link" href="{ZL:GetNodeLinkUrl(10)/}">官方新闻</a> </li>
+	<li class="nav-item"><a class="nav-link" href="{ZL:GetNodeLinkUrl(4)/}">关于我们</a> </li>
+	<li class="nav-item"><a class="nav-link" href="{ZL:GetNodeLinkUrl(6)/}">运营团队</a> </li>
+	<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">特色服务</a>
+	  <div class="dropdown-menu" aria-labelledby="dropdown">
+		  <a class="dropdown-item" href="{ZL:GetNodeLinkUrl(15)/}">育婴指导</a>
+		  <a class="dropdown-item" href="{ZL:GetNodeLinkUrl(16)/}">健康咨询</a>
+		  <a class="dropdown-item" href="{ZL:GetNodeLinkUrl(17)/}">生活康复</a> </div>
+	</li>
+	<li class="nav-item"><a class="nav-link" href="{ZL:GetInfoUrl(1)/}">联系我们</a> </li>
+	</ul>
+  <form class="form-inline my-2 my-md-0" role="search" method="get" action="/Search/SearchList" target="_blank">
+	<input type="text" class="form-control" name="keyword" placeholder="全站检索"  aria-label="Search">
+    <button class="btn" type="submit" style="background:none; margin-left:-3rem; color:#ff9d00;" ><i class="fa fa-search" ></i></button>  
+  </form>
+</div>
+</div>
+</nav><!--nav end-->
+<div class="home_banner">
+<h1>让每个宝宝健康成长！</h1>
+<img src="{$CssDir/}images/slide-1.png" alt="">
+</div>
+</header>
+<!--header end-->	
+
+<div class="container home_elit pt-5">
+<img class="pull-left" src="{$CssDir/}images/idea-1.png" alt="">
+<h2>专注中国育婴服务市场</h2>
+<p>是你，即使是中国普通家庭的一员，也有权利享受平等、优质的医疗服务。<br/>
+我们相信普适的健康理念，并为您提供全方位的呵呵护。</p>
+<button type="button" class="btn btn-outline-secondary"><i class="fa fa-apple" aria-hidden="true"></i> 下载APP</button>
+<div class="clearfix"></div>
+</div>	
+<div class="container home_elit">
+<img class="pull-right" src="{$CssDir/}images/idea-2.png" alt="">
+<h2>面向未来的全生态科技创新体系</h2>
+<p>传统的互联风，加上大数据和智能AI,<br/>
+通过健康、生活、科技的生态，致力改变传统民用级健康，<br/>
+积极响应国家关于的多层服务体系</p>
+<button type="button" class="btn btn-outline-secondary"><i class="fa fa-wechat" aria-hidden="true"></i> 微信收听</button>
+<div class="clearfix"></div>
+</div>
+<!--home_elit end-->
+<div class="home_city">
+<div class="container">
+<p>目前开通武汉、长沙、南昌三个城市，以华中腹地为在本营运营辐射全中国。</p>
+<ul>
+<li>
+<span>186</span>
+satisfied clients
+</li>
+<li>
+<span>657</span>
+completed projects
+</li>
+<li> 
+<span>1,340</span>
+coffees drinked
+</li>
+<li> 
+<span>652</span>
+hours played battlefield 3
+</li>
+</ul>
+</div><div class="clearfix"></div>
+</div>
+<!--home_city end-->
+
+<div class="home_abc">
+<div class="container">
+<h2>育婴妈妈-行业领先的<b>服务和产品</b></h2>
+<small class="text-muted">高质量数据深沉、卓越大数据分析能力智能识别匹配，海量用户标签追踪市场趋势，精准营销预测量化服务，实现高效精细化运营。</small>
+<ul>
+<li class="home_abc1">
+<span><i class="fa fa-slack" aria-hidden="true"></i> 智能APP1</span>
+<strong>让您的每一次决策都有据可依1</strong>
+<p>
+育婴妈妈APP是基于用户在移动终端设备上的劣绅 理行业精气进行挖掘的大数据产品，旨在提升用户的使用行为，为用户提供福利，以及一站式的健康服务。
+</p>
+<a href=""  class="green_btn">查看详情</a>
+</li>
+<li class="home_abc2">
+<span><i class="fa fa-slack" aria-hidden="true"></i> 智能AP2P2</span>
+<strong>让您的每一次决策都有据可依2</strong>
+<p>
+育婴妈妈APP是基于用户在移动终端设备上的劣绅 理行业精气进行挖掘的大数据产品，旨在提升用户的使用行为，为用户提供福利，以及一站式的健康服务。
+</p>
+<a href=""  class="green_btn">查看详情</a>
+</li>
+<li class="home_abc3">
+<span><i class="fa fa-slack" aria-hidden="true"></i> 智能3APP3</span>
+<strong>让您的每一次决策都有据可依3</strong>
+<p>
+育婴妈妈APP是基于用户在移动终端设备上的劣绅 理行业精气进行挖掘的大数据产品，旨在提升用户的使用行为，为用户提供福利，以及一站式的健康服务。
+</p>
+<a href=""  class="green_btn">查看详情</a>
+</li>
+<li class="home_abc4">
+<span><i class="fa fa-slack" aria-hidden="true"></i> 智能A4PP4</span>
+<strong>让您的每一次决策都有据可依4</strong>
+<p>
+育婴妈妈APP是基于用户在移动终端设备上的劣绅 理行业精气进行挖掘的大数据产品，旨在提升用户的使用行为，为用户提供福利，以及一站式的健康服务。
+</p>
+<a href=""  class="green_btn">查看详情</a>
+</li>
+</ul>
+</div>
+</div>
+<!--home_abc end-->
+
+<div class="home_case">
+<div class="home_case_mask"></div>
+<div class="container">
+<h2>我们的<b>客户说</b></h2>
+<div id="home_caseAbc">
+<div class="swiper-container">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="{$CssDir/}Images/team-1.png" /><p>胡先生：我信赖育婴妈妈</p></div>
+<div class="swiper-slide"><img src="{$CssDir/}Images/team-2.png" /><p>赵老师：我爱我爱我爱育婴妈妈</p></div>
+<div class="swiper-slide"><img src="{$CssDir/}Images/team-3.png" /><p>Live:i lover l</p></div>
+<div class="swiper-slide"><img src="{$CssDir/}Images/team-4.png" /><p>杭州李小官：我信赖育婴妈妈</p></div>
+<div class="swiper-slide"><img src="{$CssDir/}Images/team-1.png" /><p>上海大和先生：我信赖育婴妈妈</p></div>
+</div>
+</div>
+<div class="swiper-pagination"></div>
+<div class="swiper-button-prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></div>
+<div class="swiper-button-next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div>
+</div>
+</div>
+</div>
+<!--home_case end-->
+<footer class="home_foot">
+<div class="container">
+<div class="row">
+<ul class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 home_footlist home_footlist_font">
+<li><strong>联系我们</strong></li>
+<li><a href="">商务QQ：88888888</a></li>
+<li><a href="">详情质询：yuyingma.com</a></li>
+<li><a href="">新浪微博：@育婴妈妈</a> </li>
+<li><a href="">微信公众号：育婴妈妈Love</a> </li>
+<li>宝妈聊天群： <span >66666666</span> </li>
+<li> <a  href="#" routerlink="contact">更多联系方式</a> </li>
+</ul>
+<ul class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 home_footlist">
+<li><strong>合作伙伴</strong></li>
+<li> <a href="#" target="_blank">中国儿童希望救助基金</a> </li>
+<li> <a href="#">《妈咪宝贝》杂志社</a> </li>
+<li> <a href="#">团购网</a> </li>
+<li> <a href="#">玛丽妇婴医院</a> </li>
+<li> <a href="#">伊顿国际幼儿园</a> </li>
+</ul>
+<ul class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 home_footlist">
+<li><strong>关于我们</strong></li>
+<li> <a href="#" target="_blank">育婴介绍</a> </li>
+<li> <a href="#">最新动态</a> </li>
+<li> <a href="#">专家团队</a> </li>
+<li> <a href="#">产品介绍</a> </li>
+<li> <a href="#">附近网点</a> </li>
+</ul>
+<ul class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 home_footlist">
+<li><strong>帮助中心</strong></li>
+<li> <a href="#" target="_blank">注册登录</a> </li>
+<li> <a href="#">成长阶段</a> </li>
+<li> <a href="#">育儿问答</a> </li>
+<li> <a href="#">专家在线质询</a> </li>
+<li> <a href="#">论坛</a> </li>
+<li> <a href="#">我的空间</a> </li>
+</ul>
+</div>
+<div class="copyright">
+<a href=""><img alt="{$SiteName/}" src="{$LogoUrl/}"></a>
+<p class="pull-right">{$Copyright/} </p>
+</div>
+</div>
+</footer>
+<script>
+//最下方客户说
+home_caseAbcSwiper = new Swiper('#home_caseAbc .swiper-container', {
+watchSlidesProgress: true,
+slidesPerView: 'auto',
+centeredSlides: true,
+loop: true,
+loopedSlides: 5,
+autoplay: true,
+navigation: {
+	nextEl: '.swiper-button-next',
+	prevEl: '.swiper-button-prev',
+},
+pagination: {
+	el: '.swiper-pagination',
+	//clickable :true,
+},
+on: {
+	progress: function(progress) {
+		for (i = 0; i < this.slides.length; i++) {
+			var slide = this.slides.eq(i);
+			var slideProgress = this.slides[i].progress;
+			modify = 1;
+			if (Math.abs(slideProgress) > 1) {
+				modify = (Math.abs(slideProgress) - 1) * 0.3 + 1;
+			}
+			translate = slideProgress * modify * 260 + 'px';
+			scale = 1 - Math.abs(slideProgress) / 5;
+			zIndex = 999 - Math.abs(Math.round(10 * slideProgress));
+			slide.transform('translateX(' + translate + ') scale(' + scale + ')');
+			slide.css('zIndex', zIndex);
+			slide.css('opacity', 1);
+			if (Math.abs(slideProgress) > 3) {
+				slide.css('opacity', 0);
+			}
+		}
+	},
+	setTransition: function(transition) {
+		for (var i = 0; i < this.slides.length; i++) {
+			var slide = this.slides.eq(i)
+			slide.transition(transition);
+		}
+
+	}
+}
+
+})
+
+/* 判断PC端与移动端*/
+var mobile_bs = {
+ versions: function() {
+  var u = navigator.userAgent;
+  return {
+   trident: u.indexOf('Trident') > -1, //IE内核
+   presto: u.indexOf('Presto') > -1, //opera内核
+   webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+   gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+   mobile: !! u.match(/AppleWebKit.*Mobile.*/) || !! u.match(/AppleWebKit/) && u.indexOf('QIHU') && u.indexOf('QIHU') > -1 && u.indexOf('Chrome') < 0, //是否为移动终端
+   ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+   android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+   iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
+   iPad: u.indexOf('iPad') > -1,  //是否iPad
+   webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+  }
+ } ()
+};
+if (mobile_bs.versions.mobile) {
+ if (mobile_bs.versions.android || mobile_bs.versions.iPhone || mobile_bs.versions.iPad || mobile_bs.versions.ios) {
+  window.location.href = "/Class_18/Default.aspx";
+ }
+}; 
+</script>
+</body>
+</html>

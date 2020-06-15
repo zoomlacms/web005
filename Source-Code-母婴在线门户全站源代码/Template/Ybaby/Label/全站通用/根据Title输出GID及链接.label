@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>353</LabelID>
+    <LabelName>根据Title输出GID及链接</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>全站通用</LabelCate>
+    <LabelDesc />
+    <LabelParam>Title,0,1,标题值|NodeID,48,1,父节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID</LabelField>
+    <LabelWhere>(NodeID=@NodeID or  FirstNodeID=@NodeID) and status=99 and title='@Title'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{ZL:GetInfoUrl({Field="GeneralID"/})/}</LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

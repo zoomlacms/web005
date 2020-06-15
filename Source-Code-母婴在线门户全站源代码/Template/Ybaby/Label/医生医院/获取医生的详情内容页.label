@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>352</LabelID>
+    <LabelName>获取医生的详情内容页</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>DocID,0,1,医生ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_yi ON ZL_CommonModel.ItemID=ZL_C_yi.ID</LabelTable>
+    <LabelField>ZL_C_yi.content</LabelField>
+    <LabelWhere>ZL_CommonModel.GeneralID=@DocID </LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="content"/}</LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_yi"}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

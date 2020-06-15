@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>364</LabelID>
+    <LabelName>通过用户名获取医生GID</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>UserName,0,1,用户名称</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,Title</LabelField>
+    <LabelWhere> ZL_CommonModel.Title='@UserName'</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;&lt;small&gt;{Field="Title"/}&lt;/small&gt;&lt;/a&gt; </LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":""}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>

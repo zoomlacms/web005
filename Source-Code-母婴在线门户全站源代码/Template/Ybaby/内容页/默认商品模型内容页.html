@@ -1,0 +1,135 @@
+﻿{ZL.Source id="常规商品数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="常规商品数据源" FD="Proname" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="常规商品数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="常规商品数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container shopnr_top"> 
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<h1>商品详情</h1>
+<a href="javascript:history.back(-1)"><i class="fa fa-reply" aria-hidden="true"></i></a>
+</div>
+<!--top end-->
+<div class="container shopnr_center"><img src="{ZL:GetPicUrl({SField sid="常规商品数据源" FD="Thumbnails" page="0"/})/}"/></div>
+<form id="form" name="form" method="post" action="/Cart/Cart.aspx" style="margin-bottom:10px;">
+<input name="id" type="hidden" id="id" value="{SField sid="常规商品数据源" FD="ID" page="0"/}" />
+<div class="container">
+<div class="shopnr_tit"><h2>{SField sid="常规商品数据源" FD="Proname" page="0"/}</h2>
+<span >{SField sid="常规商品数据源" FD="Proinfo" page="0"/}</span>
+ <!--<span class="float-right">{SField sid="常规商品数据源" FD="Sold" page="0"/}已购买</span>-->
+</div>
+<span class="shopnr_linprice">￥{ZL:GetMoney({SField sid="常规商品数据源" FD="LinPrice" page="0"/},2,1)/} </span><span class="shopnr_shipirce">原价:<s>{ZL:GetMoney({SField sid="常规商品数据源" FD="ShiPrice" page="0"/},2,1)/} </s></span><button type="button" onClick="AddCart()" class="btn btn-outline-secondary btn_gwc"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+</div>
+
+<!--title end-->
+
+<div class="container shopnr_fw">
+<ul>
+<li><i class="fa fa-check-square-o" aria-hidden="true"></i><span>分享返现</span></li>
+<li><i class="fa fa-check-square-o" aria-hidden="true"></i><span>随时退款</span></li>
+<li><i class="fa fa-check-square-o" aria-hidden="true"></i><span>过期自动退</span></li>
+<li><i class="fa fa-check-square-o" aria-hidden="true"></i><span>即时响应</span></li>
+</ul>
+</div>
+<!--shopnr_fw end-->
+
+
+
+<div class="container shopnr_details">
+<h3>商品介绍</h3>
+{SField sid="常规商品数据源" FD="Procontent" page="0"/}
+</div>
+<!--details end-->
+
+<div class="container shopnr_phone">
+<h3>联系客服</h3>
+<ul>
+<li><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i> 地址：文化大道澎湖湾育婴妈妈有限公司</a> </li>
+<li> <a href=""><i class="fa fa-phone" aria-hidden="true"></i> 电话：8888888888888</a> </li>
+</ul>
+</div>
+<!--shopnr_phone end-->
+
+<div class="container shopnr_commed">
+<h3>为你推荐</h3>
+<ul>
+{ZL.Label id="移动商品详情页推荐列表_不分页" NodeID="30" TitleNum="50" ShowNum="10" /}
+</ul>
+</div>
+<!---commend end-->
+
+<div class="container shopnr_more">
+<a href="{ZL:GetNodeLinkUrl(30)/}" class="btn btn-outline-secondary">更多 >> </a>
+</div>
+
+
+{ZL.Label id="育婴妈妈微信端全站底部"/}
+
+
+shopnr_bottom
+<div class="foot_bottom">
+<div class="foot_bottom_r">
+<span>商品数量：</span>
+<div class="weui-cell__ft">
+<div class="input-group ">
+<div class="input-group-prepend"><button class="btn btn-outline-secondary" type="button" onclick="LessNum();"><i class="fa fa-minus"></i></button></div>
+<input type="text" class="form-control text-center" name="Pronum" id="Pronum" value="1">
+<div class="input-group-append">
+<button class="btn btn-outline-secondary" type="button" onclick="AddNum();"><i class="fa fa-plus"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="foot_bottom_l">
+<button type="submit" onclick="subm()" class="btn btn-danger"><i class="fa fa-shopping-cart"></i> 立即抢购</button>
+</div>
+</div>
+</form>
+<!--buy end-->
+
+<script>
+//数量加减
+var pnum=1;
+var downcar=parseInt('{SField sid="常规商品数据源" FD="DownCar" page="0"/}');
+function AddNum(){
+	pnum++;
+	var num=pnum*downcar;
+	var allnum='{SField sid="常规商品数据源" FD="stock" page="0"/}';
+	if(num<=allnum){
+		$("#Pronum").val(num);
+    }
+	else{
+		pnum--;
+		num=pnum*downcar;
+		$("#Pronum").val(num);
+	}
+}
+function LessNum(){
+	pnum--;
+	var num=pnum*downcar;
+	if(num>downcar){
+		$("#Pronum").val(num);
+	}
+	else{
+		pnum=1;
+		num=pnum*downcar;
+		$("#Pronum").val(num);
+	}
+}
+/*加入购物车*/
+function AddCart()
+{
+    if($("#Pronum").val()>0){
+        $.post("/Cart/Cart.aspx?ID="+$("#id").val()+"&Pronum="+$("#Pronum").val());
+        alert("加入购物车成功！")
+    }
+    else alert("商品数量不正确！");
+};
+</script>
+</body>
+</html>

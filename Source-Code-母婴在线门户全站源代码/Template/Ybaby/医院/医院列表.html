@@ -1,0 +1,31 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container doc_top "><a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<h1>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}列表</h1>
+<div class="dropdown show  hos_toggle btn-group dropleft">
+<a class="btn dropdown-toggles" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<i class="fa fa-bars" aria-hidden="true"></i> </a>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+<a class="dropdown-item" href="/Store/StoreList?NodeID=51&ID={$GetRequest(ID)$}" target="_self">全部商品</a>
+{ZL.Label id="指定节点下子栏目列表b4下拉" ParentID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="10" /}
+</div>
+</div> 
+</div>
+<!--top end-->
+
+<main class="container">
+{ZL.Label id="输出医院列表页_分页" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="10" /}
+</main>
+<!--main end-->
+
+</body>
+</html>

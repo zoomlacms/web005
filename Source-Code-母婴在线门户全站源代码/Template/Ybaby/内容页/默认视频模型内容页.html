@@ -1,0 +1,138 @@
+﻿{ZL.Source id="视频数据源标签"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="视频数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="视频数据源标签" FD="Tagkey" page="0"/}" />
+{ZL:Boot4()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body >
+<div class="container fixed-top rom_con_top"> 
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<a href="javascript:history.back(-1)"><i class="fa fa-reply" aria-hidden="true"></i></a>
+</div>
+<!--top end-->
+
+<!--
+<div class="container ktnr_tit">
+<strong> {SField sid="视频数据源标签" FD="Title" page="0"/}</strong>
+<span>{SField sid="视频数据源标签" FD="UpDateTime" page="0"/} | {SField sid="视频数据源标签" FD="author" page="0"/} | 浏览：{SField sid="视频数据源标签" FD="Hits" page="0"/}</span>
+</div>--->
+ <!--title end-->
+ <!---
+<div class="container ktnr_vid">
+<video src="/{SField sid="视频数据源标签" FD="spdz" page="0"/}" controls="controls"></video>
+</div>-->
+<!--video end--> 
+
+<div class="container  rom_con_brand" style="background-image: url({ZL:GetPicUrl({SField sid="视频数据源标签" FD="TopImg" page="0"/})/})">
+<h1>{ZL.Label id="输出指定ID视频内容页节点名" NodeID="{SField sid="视频数据源标签" FD="NodeID" page="0"/}" /}</h1>
+<div class="rom_con_mask"></div>
+</div>
+
+
+<div class="container rom_con_tabs">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class=" nav-item">
+<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">介绍</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">课表</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">心得</a>
+</li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<ul class="rom_con_jieshao">
+<li>
+<strong>推荐理由</strong>
+<p>{SField sid="视频数据源标签" FD="synopsis" page="0"/}</p>
+</li>
+<li class="rom_tuijian">
+<strong>推荐人群</strong>
+ <span>困难夫妻困难</span>
+ <span>中华人民共和国</span>
+</li>
+
+<li class="rom_guanjianci">
+<strong>知识点Get</strong>
+</li>
+</ul>
+
+</div>
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<ul class="rom_con_video">
+<video id="myvideo" class="myvideo" controls="controls"></video>
+</ul>
+</div>
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<div class="container rom_con_pinlun"> 
+<div class="iframe_comm">
+<iframe id="comm_ifr" scrolling="no" onload="this.height = $(this).contents().height() + 'px';" src="/Comments/CommentFor?ID={SField sid="视频数据源标签" FD="GeneralID"/}" width="100%" align="middle" height="288px" frameborder="0"></iframe>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+ 
+{ZL.Label id="育婴妈妈微信端全站底部"/}
+
+<div class="weui-tabbar wei_footer  1231213">
+<a href="{ZL:GetNodeLinkUrl(18)/}" class="weui-tabbar__item" id="foot_home"> <i class="fa fa-home  weui-tabbar__icon "></i>
+<p class="weui-tabbar__label ">母婴服务</p>
+</a> <a href="{ZL:GetNodeLinkUrl(19)/}" class="weui-tabbar__item  weui-bar__item_on" id="foot_jie"> <i class="fa fa-coffee weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">妈妈课堂</p>
+</a> <a href="{ZL:GetNodeLinkUrl(20)/}" class="weui-tabbar__item" id="foot_quan"> <i class="fa fa-life-ring  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">陪诊陪护</p>
+</a> <a href="/User" class="weui-tabbar__item" id="foot_user"> <i class="fa fa-user  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">个人中心</p>
+</a> 
+</div>
+
+
+
+<script>
+//循环截取字符串 第一课|video/003.mp4$第二课|video/001.mp4
+var videoArr="{SField sid="视频数据源标签" FD="videourl" page="0"/}".split('$');
+var videoHtml="";
+for(i=0;i<videoArr.length;i++)
+{
+  if(!videoArr[i]){continue;}
+   var name=videoArr[i].split('|')[0];
+   var src="/"+videoArr[i].split('|')[1];
+   videoHtml+='<li onclick="playVideo(\''+src+'\');"><i class="fa fa-toggle-right"></i> <a href="javascript:;">'+name+'</a></li>';
+}
+$(".rom_con_video").append(videoHtml);
+
+function playVideo(src)
+{
+
+var $video=$("#myvideo");
+$video.attr("src",src);
+$video.css("display","block");
+$video[0].play();
+}
+
+
+////知识点Get
+var tag="{SField sid="视频数据源标签" FD="TagKey" page="0"/}"
+var af=""
+vid=tag.split(",");
+for(i in vid){
+   	af+="<span>"+vid[i]+"</span>"
+   
+}
+$(".rom_guanjianci").append(af);
+
+
+
+</script>
+</body>
+</html>

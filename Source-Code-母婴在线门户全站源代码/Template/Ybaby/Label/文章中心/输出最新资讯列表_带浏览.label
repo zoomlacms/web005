@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>327</LabelID>
+    <LabelName>输出最新资讯列表_带浏览</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>文章中心</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,0,1,节点ID|TitleNum,30,1,标题长度|ShowNum,10,1,调用信息数</LabelParam>
+    <LabelTable>ZL_CommonModel left join ZL_C_Article on ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_CommonModel.TopImg,ZL_CommonModel.Hits,ZL_CommonModel.CreateTime</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and status=99</LabelWhere>
+    <LabelOrder>CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;
+ &lt;img src="{ZL:GetPicUrl({Field="TopImg"/})/}" alt="{Field="Title"/}"/&gt;
+  &lt;/a&gt;
+  &lt;div class="con_question_right"&gt;
+  &lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;
+&lt;p&gt;{ZL:CutText({Field="Title"/},@TitleNum,...)/}&lt;/p&gt;
+&lt;span&gt;{Field="CreateTime"/}&lt;/span&gt;
+&lt;/a&gt;
+&lt;a href="" class="con_question_i"&gt;
+&lt;span&gt; &lt;i class="fa fa-thumbs-o-up" aria-hidden="true"&gt;&lt;/i&gt;{Field="Hits"/}&lt;/span&gt;
+&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/li&gt;
+{/Repeate}
+
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_Article"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam>{"PureT1":"ZL_CommonModel","PureT2":"ZL_C_Article","T1":"ZoomlaCMS.dbo.ZL_CommonModel","T2":"ZoomlaCMS.dbo.ZL_C_Article","JoinType":"left join","OnField1":"ItemID","OnField2":"ID"}</ProceParam>
+  </Table>
+</NewDataSet>

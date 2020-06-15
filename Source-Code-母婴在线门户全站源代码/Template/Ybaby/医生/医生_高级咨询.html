@@ -1,0 +1,109 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>购买医生服务_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+
+<form name="form7" method="post" action="/PubAction.aspx" onSubmit="return formsub()">
+
+
+<div hidden>
+<input type="hidden" name="PubID" id="PubID" value="7" />
+<input type="hidden" name="PubContentid" id="PubContentid" value="{PubContentid/}" />
+<input type="hidden" name="PubInputer" id="PubInputer" value="{PubInputer/}" />
+<div class="form-group">
+<label for="PubTitle">评论标题：</label>
+<input type="text" class="form-control" id="PubTitle" name="PubTitle" value="{ZL:GetuserName()/}的快速咨询"/>
+</div>
+<div class="form-group">
+<label for="PubContent">评论内容：</label>
+<input type="text" class="form-control" id="PubContent" name="PubContent" value="所属医生：{$GetUrldecode({$GetRequest(DocName)$})$}"/>
+</div>
+<div class="form-group">
+<label for="PubContent">用户名称：</label>
+<input type="text" class="form-control" id="yhmc" name="yhmc" value="{ZL:GetuserName()/}"/>
+</div>
+<div class="form-group">
+<label for="PubContent">用户ID：</label>
+<input type="text" class="form-control" id="yhid" name="yhid" value="{ZL:GetuserID()/}"/>
+</div>
+<div class="form-group">
+<label for="PubContent">医生名称：</label>
+<input type="text" class="form-control" id="ysmc" name="ysmc" value="{$GetUrldecode({$GetRequest(DocName)$})$}"/>
+</div>
+</div>
+
+<div class="container">
+<div class="zx_Title"><strong>{$GetUrldecode({$GetRequest(DocName)$})$}  <small>{$GetUrldecode({$GetRequest(zc)$})$}</small></strong><span>注：请认真观看价格及服务内容再下单。</span></div>
+<div class="zx_Pri"><span>0元</span><small>(0元/次)</small></div>
+<div class="zx_List">
+<strong>咨询信息</strong>
+<ul>
+<li>联系方式 <div class="zx_jiage"><input type="text" id="yhphone" name="yhphone" value="请输入你的号码" onfocus="javascript:if(this.value=='请输入你的号码')this.value='';this.type='text'"/></div></li>
+<li>咨询内容  <div class="zx_con"><textarea class="form-control"  value="" id="yhcentent" name="yhcentent"  aria-label="With textarea"></textarea></div></li>
+<li>
+
+<div class="flie_Img">	
+<label for="xqtp" hidden>凭证图：</label>
+ <input type="button" id="upfile_btn" class="btn btn-outline-info btn-sm" value="上传凭证图（最多10张）" />
+    <div id="uploader" class="uploader">
+        <ul class="filelist"></ul>
+    </div>
+    <input type="hidden" id="Attach_Hid" name="xqtp" />
+<link href="/JS/Controls/ZL_Webup.css" rel="stylesheet" />
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/Controls/ZL_Webup.js?v=1"></script>
+<script>
+    ZL_Webup.config.json.accept = "img";
+    ZL_Webup.config.json.fileNum = 6;
+    $("#upfile_btn").click(ZL_Webup.ShowFileUP);
+    function AddAttach(file, ret, pval) { return ZL_Webup.AddAttach(file, ret, pval); }
+</script> 
+</div>
+
+
+
+</li>
+</ul>
+</div>
+</div>
+
+<div class="container zx_doc">
+<strong>医生详情</strong>
+<div class="zx_doc_con">
+{ZL.Label id="获取医生的详情内容页" DocID="{$GetRequest(ysid)$}" /}
+</div>
+</div>
+
+
+<footer class="zx_footer">
+<div class="container zx_fooer_btn">
+<div>总金额：<span>免费</span></div>
+<div><input type="submit" name="button" id="button" value="提交" />   </div>
+</div>
+</footer>
+<!--footer end-->
+</form>
+</body>
+<script>
+var docName="{$GetUrldecode({$GetRequest(DocName)$})$}";
+var username="{ZL:GetuserName()/}";
+
+function formsub(){
+if(docName==username){
+alert("抱歉，不能够对自己下单！");
+return false;
+}else{
+return true;
+}
+}
+
+</script>
+</html>

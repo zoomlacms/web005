@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>348</LabelID>
+    <LabelName>获取医院内容页ID</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>Hospital,,1,医院名称</LabelParam>
+    <LabelTable>ZL_CommonModel</LabelTable>
+    <LabelField>GeneralID,Title</LabelField>
+    <LabelWhere> Title='@Hospital' And  Status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.AuditTime DESC</LabelOrder>
+    <LabelContent>&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" target="_blank"&gt;{Field="Title"/}&lt;/a&gt;</LabelContent>
+    <LabelCount>10</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

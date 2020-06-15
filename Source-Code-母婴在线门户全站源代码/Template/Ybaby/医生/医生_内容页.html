@@ -1,0 +1,187 @@
+﻿{ZL.Source id="医生专家模型数据源标签"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的主页_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="医生专家模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="医生专家模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container doc_top fixed-top">
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+<h1>医生详情</h1>
+<a href="javascript:history.back(-1)"><i class="fa fa-reply" aria-hidden="true"></i></a>
+</div>
+<!--top end-->
+	
+<main class="container doc_main"><img class="main_qc" src={ZL:GetQCUrl({$SiteURL/}/item/{SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}.aspx,150)/} alt='' />
+<div class="doccen_main">
+
+<div class="doc_topleft">
+<span class="doccen_main_sp"><img src="{ZL:GetPicUrl({SField sid="医生专家模型数据源标签" FD="pic" page="0"/})/}" alt=""></span>
+<p><strong>{SField sid="医生专家模型数据源标签" FD="Title" page="0"/}</strong><span class="doc_li_z">{SField sid="医生专家模型数据源标签" FD="zc" page="0"/}</span>
+<span class="doc_li_s">
+{ZL.Label id="获取医院内容页ID" Hospital="{SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}" /}
+</span>
+</p></div>
+<div class="doc_topright">
+<span><a href="#" id="main_qc" class="doc_topright_qc" onClick="moubnt()"><i class="fa fa-qrcode" aria-hidden="true"></i></a>  <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 送心意</a></span>
+<span><a href="#"> <i class="fa fa-plus" aria-hidden="true"></i> 加关注</a></span>
+</div>
+</div>
+<!--top end-->
+
+
+<div class="container doc_main_list">
+<ul>
+<li>好评 <span>{SField sid="医生专家模型数据源标签" FD="hp" page="0"/}</span></li>
+<li>咨询次数 <span>{ZL.Label id="获取医生评价数" GID="{SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}" /}</span></li>
+<li>临床经验 <span>{SField sid="医生专家模型数据源标签" FD="lcjy" page="0"/}</span></li>
+</ul>
+</div>
+<!--list end-->
+<div class="doc_main_sc"><span>擅长科室：</span></div>
+
+</main>
+<!--main end-->
+
+
+<section class="container odc_main_comment">
+<div class="odc_main_comment_click" onClick="conmentCli();" class="main_Top" id="conmentTop"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+<div class="odc_main_comment_con">{SField sid="医生专家模型数据源标签" FD="content" page="0"/}</div>
+<span onClick="conmentClin();" class="main_bot" id="conmentBot"><i class="fa fa-angle-up" aria-hidden="true"></i></span>
+</section>
+
+<div class="container doc_main_tabs">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+<li class="nav-item">
+<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">医生主页</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">咨询服务</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">预约挂号</a>
+</li>
+</ul>
+<div class="tab-content doc_conment" id="myTabContent">
+<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<div class="doc_main_case">
+<h2><i class="fa fa-hospital-o" aria-hidden="true"></i> <span>执业地点</span></h2>
+<p class="doc_case_title"><a href="{ZL:GetInfoUrl({ZL.Label id="根据Title输出GID" Title="{SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}" NodeID="48" /})/}">{SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}</a></p>
+</div>
+
+<div class="container doc_main_case_pl">
+<h2> <a href="" class="active"> <i class="fa fa-user-plus" aria-hidden="true"></i> 快速咨询</a> <a href="{ZL:GetProposeinfo(43)/}?zc={SField sid="医生专家模型数据源标签" FD="zc" page="0"/}&ysid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&DocName={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> 高级图文咨询</a> </h2> 
+<iframe id="comm_ifr" scrolling="no" onload="this.height = $(this).contents().height() + 'px';" src="/Comments/CommentFor?ID={SField sid="医生专家模型数据源标签" FD="GeneralID"/}" width="100%" align="middle" height="288px" frameborder="0"></iframe>
+</div>
+</div>
+<!--医生主页-->
+<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<div class="container doc_main_case1">
+<p>欢迎使用咨询服务，我将利用我的空余时间，尽快为您解答疑惑！</p>
+<ul class="row">
+<li class="col-4">
+<dl>
+<dt class="doc_case01_tw"><i class="fa fa-photo" aria-hidden="true"></i></dt>
+<dd>图文咨询</dd>
+<dd>24小时咨询回复率100%</dd>
+<dd><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的图文咨询&jiage={SField sid="医生专家模型数据源标签" FD="twzxjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}">{SField sid="医生专家模型数据源标签" FD="twzxjg" page="0"/}元/次</a></dd>
+</dl>
+</li>
+<li class="col-4">
+
+<dl>
+<dt class="doc_case01_ph"><i class="fa fa-phone" aria-hidden="true"></i></dt>
+<dd>电话咨询</dd>
+<dd>24小时咨询回复率100%</dd>
+<dd><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的电话咨询&jiage={SField sid="医生专家模型数据源标签" FD="dhzxjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}">{SField sid="医生专家模型数据源标签" FD="dhzxjg" page="0"/}元/次</a> </dd>
+</dl>
+</li>
+
+<li class="col-4">
+<dl>
+<dt class="doc_case01_vd"><i class="fa fa-toggle-right" aria-hidden="true"></i></dt>
+<dd>视频教程</dd>
+<dd>24小时咨询回复率100%</dd>
+<dd><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的视频咨询&jiage={SField sid="医生专家模型数据源标签" FD="spjcjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}">{SField sid="医生专家模型数据源标签" FD="spjcjg" page="0"/}元/次</a></dd>
+</dl>
+</li>
+</ul>
+</div>
+
+<div class="container doc_case1_l">
+<h2>私人医生服务</h2>
+<p></p>
+<ul>
+<li><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的专家服务&jiage={SField sid="医生专家模型数据源标签" FD="bzjzjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}"><i class="fa z01-icon021"></i> 包周服务<span>{SField sid="医生专家模型数据源标签" FD="bzjzjg" page="0"/}/周</span></a></li>
+
+<li><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的专家服务&jiage={SField sid="医生专家模型数据源标签" FD="byjzjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}"><i class="fa z01-icon021"></i> 包月服务 <span>{SField sid="医生专家模型数据源标签" FD="byjzjg" page="0"/}/月</span></a></li>
+
+<li><a href="{ZL:GetLastinfo(43)/}?title={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的专家服务&jiage={SField sid="医生专家模型数据源标签" FD="kjjzjg" page="0"/}&Gid={SField sid="医生专家模型数据源标签" FD="GeneralID" page="0"/}&Uname={SField sid="医生专家模型数据源标签" FD="Title" page="0"/}&scly={SField sid="医生专家模型数据源标签" FD="szly" page="0"/}&yuan={SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}&cynx={SField sid="医生专家模型数据源标签" FD="cynx" page="0"/}&ks={SField sid="医生专家模型数据源标签" FD="ks" page="0"/}"><i class="fa z01-icon021"></i> 快捷就诊 <span>{SField sid="医生专家模型数据源标签" FD="kjjzjg" page="0"/}/日</span></a></li>
+</ul>
+</div>
+</div>
+<!---咨询服务-->
+<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+<div class="container doc_main_case2">
+<p class="doc_case_hos"><i class="fa fa-hospital-o" aria-hidden="true"></i> {SField sid="医生专家模型数据源标签" FD="yuan" page="0"/}</p>
+<span>皮肤科甲真菌病专病门诊</span><span>皮肤性病科</span>
+</div>
+</div>
+<!--预约挂号-->
+</div>
+</div>
+<!--tag end--->
+
+<script>
+//医生标签输出
+var scArr="{SField sid="医生专家模型数据源标签" FD="szly" page="0"/}".split(",");
+var scHtml="";
+for(i=0;i<scArr.length;i++){
+if(!scArr[i]){continue};
+var tag=scArr[i];
+scHtml+='<small>'+tag+'</small>'
+}
+$(".doc_main_sc").append(scHtml);
+
+
+//点击简介出现
+function conmentCli(){
+var $commentClia=$("#conmentTop"); 
+var $commentClip=$(".odc_main_comment p"); 
+var $commentCliat=$("#conmentBot"); 
+$commentClia.css("display","none")
+$commentClip.css("display","block")
+$commentCliat.css("display","block")
+}
+
+function conmentClin(){
+var $commentCliat=$("#conmentBot"); 
+var $commentClia=$("#conmentTop"); 
+var $commentClip=$(".odc_main_comment p"); 
+$commentCliat.css("display","none")
+$commentClia.css("display","block")
+$commentClip.css("display","none")
+}
+
+//二维码出现
+function moubnt(){
+var $qc=$("#main_qc");
+$(".main_qc").css("display","block")
+$qc.attr("onclick","outbnt()")
+}
+function outbnt(){
+var $qc=$("#main_qc");
+$(".main_qc").css("display","none")
+$qc.attr("onclick","moubnt()")
+}
+
+
+
+
+</script>
+</body>
+</html>

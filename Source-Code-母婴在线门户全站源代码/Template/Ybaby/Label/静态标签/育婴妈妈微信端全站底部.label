@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>324</LabelID>
+    <LabelName>育婴妈妈微信端全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;footer class="yuyin_bottom"&gt;
+&lt;div class="container con_foot"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=""&gt;官方授权&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;品质保证&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;价格最优&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=""&gt;信誉保障&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=""&gt;
+&lt;img src="{$CssDir/}Images/wxCarousel02.jpg" /&gt;
+&lt;/a&gt;
+&lt;p&gt;{$Copyright/} &lt;/p&gt;
+&lt;/div&gt;
+&lt;/footer&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

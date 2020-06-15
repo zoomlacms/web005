@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>366</LabelID>
+    <LabelName>根据医院输出所有的就诊患者</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示个数|TitleNum,30,1,标题长度</LabelParam>
+    <LabelTable>ZL_Pub_twzx</LabelTable>
+    <LabelField>zxjj,hzmc,PubAddTime,ysmc,szks</LabelField>
+    <LabelWhere> ZL_Pub_twzx.ysszyy='{ZL:GetuserName()/}'</LabelWhere>
+    <LabelOrder>ZL_Pub_twzx.PubAddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;
+&lt;strong&gt;{Field="zxjj"/}&lt;/strong&gt;
+  &lt;div class="host_Jzhz_tiem"&gt;&lt;span&gt;患者姓名：&lt;a href="{ZL:GetLastinfo(63)/}?UserName={Field="hzmc"/}"&gt;&lt;small&gt;{Field="hzmc"/}&lt;/small&gt;&lt;/a&gt; &lt;small&gt;({ZL.Label id="根据用户名输出患者真名" UserName="{Field="hzmc"/}" /})&lt;/small&gt;&lt;/span&gt;
+&lt;span&gt;患者时间：&lt;small&gt;{ZL:FormatDate({Field="PubAddTime"/},yyyy-MM-dd hh:mm:ss)/}&lt;/small&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="host_Jzhz_doc"&gt;
+&lt;span&gt;出诊医生：{ZL.Label id="通过用户名获取医生GID" UserName="{Field="ysmc"/}" /}&lt;/span&gt;
+&lt;span&gt;科室：&lt;small&gt;{Field="szks"/}&lt;/small&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Pub_twzx","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

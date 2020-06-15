@@ -1,0 +1,37 @@
+﻿{ZL.Source id="医生专家模型数据源标签"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="医生专家模型数据源标签" FD="Title" page="0"/}的主页_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="医生专家模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="医生专家模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container docShare">
+<div class="docShare_img"> <img src={ZL:GetQCUrl({$SiteURL/}/User/Register?ParentUserID=用户ID,150)/} alt='' /><div class="doc_Tg_tit">将本二维码分享即享获得收益</div></div> 
+
+
+<div class="doc_content">
+<div><strong>{$GetUrldecode({$GetRequest(userName)$})$}</strong>
+<div class="doc_content_tag">擅长领域：</div>
+</div>
+<div class="doc_content_p">
+{ZL.Label id="根据Title输出医生个人介绍" UserName="{$GetUrldecode({$GetRequest(userName)$})$}" NodeID="43" /}</div>
+</div>
+
+
+</div>
+<script>
+//添加擅长领域
+var tagHtml="{ZL.Label id="根据Title输出擅长领域" Title="{$GetUrldecode({$GetRequest(userName)$})$}" NodeID="43" /}".split(",");
+var html="";
+for(i in tagHtml){
+   html+='<small>'+tagHtml[i]+'</small>';
+}
+$(".doc_content_tag").append(html);
+
+</script>
+</body>
+</html>

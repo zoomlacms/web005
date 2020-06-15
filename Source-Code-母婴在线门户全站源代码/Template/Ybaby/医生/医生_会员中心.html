@@ -1,0 +1,92 @@
+﻿{ZL.Source id="医生数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="医生数据源" FD="UserName" page="0"/}的会员中心</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<header class="container duser_Top">
+<div class="duser_Top_t">
+<h1> <a href="/User/Info/UserBase?sel=Tabs1"><img src="{SField sid="医生数据源" FD="UserFace" page="0"/}" onerror="this.onerror=null;this.src='/UploadFiles/nopic.svg'" ></a></h1>
+<p>
+ <span class="duser_name">{SField sid="医生数据源" FD="UserName" page="0"/}</span><small>{ZL.Label id="根据Title输出职称" Title="{SField sid="医生数据源" FD="UserName" page="0"/}" NodeID="43" /}</small>
+ <abbr id="doc_tag"><span class="duser_sc">擅长:</span></abbr> 
+<a href="{ZL.Label id="根据Title输出GID及链接" Title="{SField sid="医生数据源" FD="UserName" page="0"/}" NodeID="43" /}" class="btn">个人主页 ></a>
+</p>
+</div>
+<ul class="row">
+<li class="col-4"><a href="/user/Info/ConsumeDetail?SType=1"><i class="fa fa-bookmark" aria-hidden="true"></i> 收益</a></li>
+<li class="col-4"><a href="{ZL:GetHotinfo(43)/}?uid={SField sid="医生数据源" FD="UserID" page="0"/}&userName={SField sid="医生数据源" FD="UserName" page="0"/}&userID={SField sid="医生数据源" FD="UserID" page="0"/}"><i class="fa fa-send-o" aria-hidden="true"></i> 推广</a></li>
+<li class="col-4"><a href="/User/Money/WithDraw"><i class="fa fa-coffee" aria-hidden="true"></i> 提现</a></li>
+</ul>
+</header>
+<!---header end-->
+
+<main class="container duser_Main">
+<div class="duser_Main_l1">
+<h2>我的订单</h2>
+<ul>
+<li><a href="/User/UserShop/OrderList"><img src="{$CssDir/}Images/icon003.png" alt="订单"> 订单</a></li>
+<li><a href="/User/UserShop/ProductList"><img src="{$CssDir/}Images/iconmore.png" alt="商品管理"> 商品管理</a></li>
+<li><a href="{ZL:GetNodeListUrl(21)/}?GID={ZL.Label id="根据Title输出GID" Title="{SField sid="医生数据源" FD="UserName" page="0"/}" NodeID="43" /}"><img src="{$CssDir/}Images/icon002.png" alt="评价">快速问询</a></li>
+<li class="duser_Main_gj"><a href="{ZL:GetLastinfo(21)/}?docName={SField sid="医生数据源" FD="UserName" page="0"/}"><i class="fa fa-bank" aria-hidden="true"></i>
+ 高级问询</a></li>
+<li><a href="/user/Info/ConsumeDetail?SType=1"><img src="{$CssDir/}Images/icon012.png" alt=""> 账单</a></li>
+</ul>
+</div>
+</main>
+<!--main end-->
+
+<div class="duser_Main_l2">
+<div class="container">
+<ul> 
+<li><a href="/User/Info/UserBase">个人资料维护</a></li>
+<li><a href="/User/Info/Index?lmName=医生证件维护">医生证件维护</a></li>
+<!--<li><a href="#">店铺设置</a></li>-->
+<li><a href="/User/Content/AddContent?NodeID=15&ModelID=2">发布文章</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(63)/}?docName={SField sid="医生数据源" FD="UserName" page="0"/}">病例回顾</a></li>
+</ul>
+</div>
+</div>
+
+<div class="duser_Main_l2 duser_Bottom">
+<div class="container">
+<ul>
+<li><a href="/User/Change/Pwd">修改密码</a></li>
+<li><a href="/user/iServer/FiServer">联系客服</a></li>
+<li><a href="/User/User/LogOut">退出</a></li>
+</ul>
+</div>
+</div>
+
+
+<footer>
+<div class="weui-tabbar wei_footer"> <a href="{ZL:GetNodeLinkUrl(18)/}" class="weui-tabbar__item" id="foot_home"> <i class="fa fa-home  weui-tabbar__icon "></i>
+<p class="weui-tabbar__label ">母婴服务</p>
+</a> <a href="{ZL:GetNodeLinkUrl(19)/}" class="weui-tabbar__item" id="foot_jie"> <i class="fa fa-coffee weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">妈妈课堂</p>
+</a> <a href="{ZL:GetNodeLinkUrl(20)/}" class="weui-tabbar__item" id="foot_quan"> <i class="fa fa-life-ring  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">陪诊陪护</p>
+</a> <a href="/User" class="weui-tabbar__item weui-bar__item_on" id="foot_user"> <i class="fa fa-user  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">个人中心</p>
+</a>
+</div>
+</footer>
+<!--footer end-->
+<script>
+//添加擅长领域
+var tagHtml="{ZL.Label id="根据Title输出擅长领域" Title="{SField sid="医生数据源" FD="UserName" page="0"/}" NodeID="43" /}".split(",");
+var html="";
+for(i in tagHtml){
+   html+='<small>'+tagHtml[i]+'</small>';
+}
+$("#doc_tag").append(html);
+
+</script>
+</body>
+</html>

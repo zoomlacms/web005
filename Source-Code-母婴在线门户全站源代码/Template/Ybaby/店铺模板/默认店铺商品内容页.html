@@ -1,0 +1,112 @@
+﻿{ZL.Source id="店铺商品数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="店铺商品数据源标签" FD="Proname" page="0"/}_{ZL.Label id="输出指定店铺名称" UserShopID="{SField sid="店铺商品数据源标签" FD="UserShopID" page="0"/}" /}</title>
+<meta name="Keywords" content="{SField sid="店铺商品数据源标签" FD="Tagkey" page="0"/}">
+{ZL:Boot4()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container shopcen_hea">
+<a href="javascript:history.back(-1)"><i class="fa fa-reply" aria-hidden="true"></i></a>
+<h1>商品详情</h1>
+<a href="{ZL:GetNodeLinkUrl(18)/}"><i class="fa fa-home" aria-hidden="true"></i></a>
+</div>
+
+<form id="form2" method="post" target="_blank" action="/Cart/Cart.aspx">
+<input name="id" type="hidden" id="id" value="{SField sid="店铺商品数据源标签" FD="ID" page="0"/}" />
+
+
+<header class="container shopcen_top">
+
+<div class="shopcen_top_img"><img src="{ZL:GetPicUrl({SField sid="店铺商品数据源标签" FD="Thumbnails" page="0"/})/}" alt=""></div>
+<div class="shop_top_tit" >
+<h2>{SField sid="店铺商品数据源标签" FD="Proname" page="0"/}</h2>
+<span>{ZL:GetMoney({SField sid="店铺商品数据源标签" FD="LinPrice" page="0"/},2,1)/} </span> <small>原价: <s>￥{SField sid="店铺商品数据源标签" FD="ShiPrice" page="0"/}</s></small>
+</div>
+</header>
+<!--hearder end-->
+
+<div class="container shopcen_u1l">
+<ul>
+<li><a href=" "><i class="fa fa-check-square-o" aria-hidden="true"></i><span>分享返现</span></a></li>
+<li><a href=" "><i class="fa fa-check-square-o" aria-hidden="true"></i><span>随时退款</span></a></li>
+<li><a href=" "><i class="fa fa-check-square-o" aria-hidden="true"></i><span>过期自动退</span></a></li>
+<li><a href=" "><i class="fa fa-check-square-o" aria-hidden="true"></i><span>即时响应</span></a></li>
+</ul>
+</div>
+<!---shopcenul end-->
+
+<main class="container  shopcen_main">
+<h3>商品介绍</h3>
+<div class="shopcen_js">
+{SField sid="店铺商品数据源标签" FD="Proinfo" page="0"/}</div>
+<h3>推荐列表</h3>
+<div class=" shopcen_lb">
+{ZL.Label id="输出店铺商品列表_不分页" TitleNum="25" ShowNum="10" UserShopID="{$GetRequest(ID)$}" NodeID="51" /}
+</div>
+</main>
+<!--main end-->
+
+<div class="foot_bottom">
+<div class="foot_bottom_r">
+<span>商品数量：</span>
+<div class="weui-cell__ft">
+<div class="input-group ">
+<div class="input-group-prepend"><button class="btn btn-outline-secondary" type="button" onclick="LessNum();"><i class="fa fa-minus"></i></button></div>
+<input type="text" class="form-control text-center" name="Pronum" id="Pronum" value="1">
+<div class="input-group-append">
+<button class="btn btn-outline-secondary" type="button" onclick="AddNum();"><i class="fa fa-plus"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="foot_bottom_l">
+<button type="submit" onclick="subm()" class="btn btn-danger"><i class="fa fa-shopping-cart"></i> 立即抢购</button>
+</div>
+</div>
+<!--固底 end-->
+</form>
+
+<script>
+//数量加减
+var pnum=1;
+var downcar=parseInt('{SField sid="店铺商品数据源标签" FD="DownCar" page="0"/}');
+function AddNum(){
+	pnum++;
+	var num=pnum*downcar;
+	var allnum='{SField sid="店铺商品数据源标签" FD="stock" page="0"/}';
+	if(num<=allnum){
+		$("#Pronum").val(num);
+    }
+	else{
+		pnum--;
+		num=pnum*downcar;
+		$("#Pronum").val(num);
+	}
+}
+function LessNum(){
+	pnum--;
+	var num=pnum*downcar;
+	if(num>downcar){
+		$("#Pronum").val(num);
+	}
+	else{
+		pnum=1;
+		num=pnum*downcar;
+		$("#Pronum").val(num);
+	}
+}
+/*加入购物车*/
+function AddCart()
+{
+    if($("#Pronum").val()>0){
+        $.post("/Cart/Cart.aspx?ID="+$("#id").val()+"&Pronum="+$("#Pronum").val());
+        alert("加入购物车成功！")
+    }
+    else alert("商品数量不正确！");
+};
+</script>
+</body>
+</html>

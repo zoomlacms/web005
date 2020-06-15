@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>360</LabelID>
+    <LabelName>输出高级图文咨询列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc>根据当前医生显示咨询该医生的高级图文列表。</LabelDesc>
+    <LabelParam>DocName,0,1,医生名称|ShowNum,10,1,显示个数|TitleNum,30,1,标题长度</LabelParam>
+    <LabelTable>ZL_Pub_kszx</LabelTable>
+    <LabelField>PubAddTime,PubTitle,xqtp,yhmc,yhphone,yhid,yhcentent</LabelField>
+    <LabelWhere> ZL_Pub_kszx.Pubstart=1 And ZL_Pub_kszx.ysmc='@DocName'</LabelWhere>
+    <LabelOrder>ZL_Pub_kszx.PubAddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+ &lt;div class="card zx_Gjlists"&gt;
+    &lt;div class="card-header" id="heading{ZL:jsq}"&gt;
+	&lt;a href=""&gt;&lt;/a&gt;
+     &lt;a class="btn btn-link" data-toggle="collapse" data-target="#collapse{ZL:jsq}" aria-controls="collapse{ZL:jsq}"&gt;
+           &lt;img src="{ZL:SplitWord({Field="xqtp"/},|,0)/}" alt="{Field="PubTitle"/}" onerror="this.onerror=null;this.src='/UploadFiles/nopic.svg'"&gt;
+&lt;div class="zx_Gjlist_con"&gt;&lt;strong&gt;{ZL:CutText({Field="PubTitle"/},@TitleNum,)/}&lt;/strong&gt;
+&lt;div class="zx_Gjlist_yh"&gt;&lt;span&gt;{Field="yhmc"/}&lt;/span&gt;&lt;span&gt;{Field="yhphone"/}&lt;/span&gt;&lt;/div&gt;
+时间：&lt;small&gt; {ZL:FormatDate({Field="PubAddTime"/},yyyy-MM-dd)/}&lt;/small&gt;
+       &lt;/div&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div id="collapse{ZL:jsq}" class="collapse " aria-labelledby="heading{ZL:jsq}" data-parent="#accordion"&gt;
+      &lt;div class="card-body"&gt;
+        用户名称：&lt;small&gt;{Field="yhmc"/}&lt;/small&gt; 用户ID：&lt;small&gt;{Field="yhid"/}&lt;/small&gt;
+		&lt;div class="zx_Gjlists_content"&gt;{Field="yhcentent"/}&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Pub_kszx","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

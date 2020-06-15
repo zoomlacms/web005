@@ -1,0 +1,56 @@
+﻿{ZL.Source id="医生数据源"/}<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="医生数据源" FD="UserName" page="0"/}的会员中心</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body>
+<header class="container hos_header">
+<div class="duser_Top_t">
+<h1> <a href="/User/Info/UserBase?sel=Tabs1"><img src="{SField sid="医生数据源" FD="UserFace" page="0"/}" onerror="this.onerror=null;this.src='/UploadFiles/nopic.svg'" ></a></h1>
+<p>
+ <span class="duser_name">{SField sid="医生数据源" FD="UserName" page="0"/}</span>
+ <abbr><span class="duser_sc">地址:</span> <small>湖北武汉</small></abbr> 
+</p>
+<a href="" class="duser_Top_a"><i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+<!--top end-->
+</header>
+<!---header end-->
+
+<main class="container huser_list">
+<ul class="row">
+<li class="col-4"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> 详情设置</a></li>
+<li class="col-4"><a href="#"><i class="fa fa-stethoscope" aria-hidden="true"></i> 入驻医生</a></li>
+<li class="col-4"><a href="#"><i class="fa fa-edit" aria-hidden="true"></i> 医生设置</a></li>
+<li class="col-4"><a href="{ZL:GetLastinfo(48)/}"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 就诊患者</a></li>
+<li class="col-4"><a href="#"><i class="fa fa-glass" aria-hidden="true"></i> 信息管理</a></li>
+<li class="col-4"><a href="{ZL:GetHotinfo(43)/}?uid={SField sid="医生数据源" FD="UserID" page="0"/}"><i class="fa fa-qrcode" aria-hidden="true"></i>二维码</a></li>
+<li class="col-4"><a href="/User/User/LogOut?returnurl=/Class_18/Default.aspx"><i class="fa fa-braille" aria-hidden="true"></i> 退出</a></li>
+<li class="col-4"><a href="/User/Change/Pwd"><i class="fa fa-cog" aria-hidden="true"></i> 修改密码</a></li>
+<li class="col-4"><a href="/user/iServer/FiServer"><i class="fa z01-icon127" aria-hidden="true"></i> 联系客服</a></li>
+</ul>
+</main>
+<!--main end-->
+
+
+<footer>
+<div class="weui-tabbar wei_footer"> <a href="{ZL:GetNodeLinkUrl(18)/}" class="weui-tabbar__item" id="foot_home"> <i class="fa fa-home  weui-tabbar__icon "></i>
+<p class="weui-tabbar__label ">母婴服务</p>
+</a> <a href="{ZL:GetNodeLinkUrl(19)/}" class="weui-tabbar__item" id="foot_jie"> <i class="fa fa-coffee weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">妈妈课堂</p>
+</a> <a href="{ZL:GetNodeLinkUrl(20)/}" class="weui-tabbar__item" id="foot_quan"> <i class="fa fa-life-ring  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">陪诊陪护</p>
+</a> <a href="/User" class="weui-tabbar__item weui-bar__item_on" id="foot_user"> <i class="fa fa-user  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">个人中心</p>
+</a>
+</div>
+</footer>
+<!--footer end-->
+
+</body>
+</html>

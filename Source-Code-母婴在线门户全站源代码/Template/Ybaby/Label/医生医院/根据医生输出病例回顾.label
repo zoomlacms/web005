@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>363</LabelID>
+    <LabelName>根据医生输出病例回顾</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示个数|TitleNum,30,1,标题长度</LabelParam>
+    <LabelTable>ZL_Pub_twzx</LabelTable>
+    <LabelField>PubAddTime,spjg,zxjj,PubUserName,PubContent,hzdh</LabelField>
+    <LabelWhere>ysmc='{ZL:GetuserName()/}'</LabelWhere>
+    <LabelOrder>ZL_Pub_twzx.PubAddTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+    &lt;div class="card-header" id="headingOne{ZL:jsq}"&gt;
+      &lt;div class="mb-0"&gt;
+&lt;div class="jzls_List"&gt;
+&lt;a href="javasrcipt:;"  data-toggle="collapse" data-target="#collapseOne{ZL:jsq}" aria-expanded="false" aria-controls="collapseOne{ZL:jsq}"&gt;&lt;strong&gt;{ZL:CutText({Field="zxjj"/},@TitleNum,)/}&lt;/strong&gt;&lt;/a&gt;
+&lt;span class="jzls_List_time"&gt;下单时间：&lt;small&gt;{ZL:FormatDate({Field="PubAddTime"/},yyyy-MM-dd)/}&lt;/small&gt;&lt;/span&gt;
+  &lt;span class="jzls_List_doc"&gt;诊断患者：&lt;a href="{ZL:GetLastinfo(63)/}?UserName={Field="PubUserName"/}"&gt;&lt;small&gt;{Field="PubUserName"/}&lt;/small&gt; &lt;/a&gt;  &lt;/span&gt;&lt;span class="jzls_List_pro"&gt;￥{ZL:GetMoney({Field="spjg"/},2,1)/}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div id="collapseOne{ZL:jsq}" class="collapse" aria-labelledby="headingOne{ZL:jsq}" data-parent="#accordion"&gt;
+      &lt;div class="card-body jzls_con"&gt;
+	       &lt;ul&gt;
+		   &lt;li&gt;订单：&lt;small&gt;{ZL:CutText({Field="zxjj"/},@TitleNum,)/}&lt;/small&gt; &lt;/li&gt;
+		   &lt;li&gt;患者真名：&lt;small&gt;{ZL.Label id="根据用户名输出患者真名" UserName="{Field="PubUserName"/}" /}&lt;/small&gt; &lt;/li&gt;
+		   &lt;li&gt;病情介绍：&lt;small&gt;{Field="PubContent"/}&lt;/small&gt; &lt;/li&gt;
+		   &lt;li&gt;联系电话：&lt;small&gt;{Field="hzdh"/}&lt;/small&gt;&lt;/li&gt;
+		   &lt;/ul&gt;
+	  &lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}
+
+</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Pub_twzx","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

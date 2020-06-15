@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>318</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;nav class="navbar navbar-expand-lg mynav navbar-dark"&gt;
+&lt;div class="container"&gt; &lt;a class="navbar-brand" href="/"&gt;&lt;img src="{$LogoUrl/}" alt="{$SiteName/}"&gt;&lt;/a&gt;
+&lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation"&gt; &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt; &lt;/button&gt;
+&lt;div class="collapse navbar-collapse" id="navbarsExample07"&gt;
+  &lt;ul class="navbar-nav mr-auto"&gt;
+	&lt;li class="nav-item active"&gt;&lt;a class="nav-link" href="/"&gt;首页 &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="{ZL:GetNodeLinkUrl(10)/}"&gt;官方新闻&lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="{ZL:GetNodeLinkUrl(4)/}"&gt;关于我们&lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="{ZL:GetNodeLinkUrl(6)/}"&gt;运营团队&lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item dropdown"&gt; &lt;a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;特色服务&lt;/a&gt;
+	  &lt;div class="dropdown-menu" aria-labelledby="dropdown"&gt;
+		  &lt;a class="dropdown-item" href="{ZL:GetNodeLinkUrl(15)/}"&gt;育婴指导&lt;/a&gt;
+		  &lt;a class="dropdown-item" href="{ZL:GetNodeLinkUrl(16)/}"&gt;健康咨询&lt;/a&gt;
+		  &lt;a class="dropdown-item" href="{ZL:GetNodeLinkUrl(17)/}"&gt;生活康复&lt;/a&gt; &lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;&lt;a class="nav-link" href="{ZL:GetInfoUrl(1)/}"&gt;联系我们&lt;/a&gt; &lt;/li&gt;
+	&lt;/ul&gt;
+  &lt;form class="form-inline my-2 my-md-0" role="search" method="get" action="/Search/SearchList" target="_blank"&gt;
+	&lt;input type="text" class="form-control" name="keyword" placeholder="全站检索"  aria-label="Search"&gt;
+    &lt;button class="btn" type="submit" style="background:none; margin-left:-3rem; color:#ff9d00;" &gt;&lt;i class="fa fa-search" &gt;&lt;/i&gt;&lt;/button&gt;  
+  &lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/nav&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

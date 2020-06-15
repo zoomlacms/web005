@@ -1,0 +1,41 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot4()/}
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+</head><body>
+<div class="container gr_top"> <span><a href=""><i class="fa z01-icon056"></i> </a></span><span>育婴妈妈</span>
+<div class="clearfix"></div>
+</div>
+<!--top end-->
+
+<div class="container gr_middle yuyin_bottom">
+<ul>
+<li class="gr_listborder"> <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i><span>我的订单</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li> <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i> <span>成员管理</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span> </a> </li>
+<li> <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i> <span>地址管理</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span> </a> </li>
+<li class="gr_listborder"><a href=""><i class="fa fa-calculator fa-1x" aria-hidden="true"></i><span>意见反馈</span> <span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a></li>
+<li > <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i> <span>关于我们</span> <span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span> </a> </li>
+<li class="gr_listborder"> <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i><span>联系我们</span><span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span></a> </li>
+<li> <a href=""> <i class="fa fa-calculator fa-1x" aria-hidden="true"></i> <span>账户设置</span> <span><i class="fa fa-angle-right fa-2x" aria-hidden="true"></i></span> </a> </li>
+</ul>
+</div>
+<!--middle end-->
+
+<div class="weui-tabbar wei_footer"> <a href="{ZL:GetNodeLinkUrl(18)/}" class="weui-tabbar__item" id="foot_home"> <i class="fa fa-home weui-tabbar__icon "></i>
+<p class="weui-tabbar__label ">母婴服务</p>
+</a> <a href="{ZL:GetNodeLinkUrl(19)/}" class="weui-tabbar__item" id="foot_jie"> <i class="fa fa-coffee weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">妈妈课堂</p>
+</a> <a href="{ZL:GetNodeLinkUrl(20)/}" class="weui-tabbar__item" id="foot_quan"> <i class="fa fa-life-ring weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">陪诊陪护</p>
+</a> <a href="{ZL:GetNodeLinkUrl(21)/}" class="weui-tabbar__item weui-bar__item_on" id="foot_user"> <i class="fa fa-user  weui-tabbar__icon"></i>
+<p class="weui-tabbar__label">个人中心</p>
+</a> </div>
+</body>
+</html>

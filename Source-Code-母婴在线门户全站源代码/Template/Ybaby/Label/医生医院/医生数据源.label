@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>351</LabelID>
+    <LabelName>医生数据源</LabelName>
+    <LabelType>3</LabelType>
+    <LabelCate>医生医院</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_User LEFT JOIN ZL_UserBase ON ZL_User.UserID=ZL_UserBase.UserID</LabelTable>
+    <LabelField>*</LabelField>
+    <LabelWhere> ZL_User.UserID={$GetRequest(uid)$}</LabelWhere>
+    <LabelOrder />
+    <LabelContent />
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_UserBase"}</DataSourceType>
+    <ConnectString />
+  </Table>
+</NewDataSet>
